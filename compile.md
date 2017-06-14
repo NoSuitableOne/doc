@@ -1,0 +1,6 @@
+##### HTML compilation happens in three phases: #####
+1. ```$compile``` traverses the DOM and matches directives.
+   If the compiler finds that an element matches a directive, then the directive is added to the list of directives that match the DOM element. A single element may match multiple directives.
+2. Once all directives matching a DOM element have been identified, the compiler sorts the directives by their priority.
+   Each directive's compile functions are executed. Each compile function has a chance to modify the DOM. Each compile function returns a link function. These functions are composed into a "combined" link function, which invokes each directive's returned link function.
+3. ``$compile`` links the template with the scope by calling the combined linking function from the previous step. This in turn will call the linking function of the individual directives, registering listeners on the elements and setting up ``$watchs`` with the scope as each directive is configured to do.
