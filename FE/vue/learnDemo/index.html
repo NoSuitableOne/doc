@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Learn vue.js demo</title>
+</head>
+<body>
+    <div id="app-1">
+    	{{message}}
+    </div>		
+    <div id="app-2">
+        <span v-bind:title="message">hover on me</span>
+    </div>
+    <div id="app-3">
+    	<p v-if="seen">now you see me</p>
+    </div>
+    <div id="app-4">
+    	<ol>
+    		<li v-for="todo in todos">{{todo.text}}</li>
+    	</ol>
+    </div>
+    <div id="app-5">
+    	<p>{{message}}</p>
+    	<button v-on:click="reverseMessage">reverse message</button>
+    </div>
+    <div id="app-6">
+        <show-msg v-bind:msg="typetext"></show-msg>
+        <input type="text" v-model="typetext">			
+    </div>
+    <div id="app-7">
+        <ol>
+    	    <todo-item v-for="item in lists" v-bind:todo='item'></todo-item>
+        </ol>	
+    </div>
+    <div id="app-8">
+        <span v-once>This will never change: {{ msg }}</span>
+    </div>
+    <hr />
+    <div id="example">
+        <my-component></my-component>
+    </div>
+    <div id="example2">
+        <child my-msg="hello!"></child>  
+    </div>   
+    <div id="example3">
+        <props-out prop-a=4></props-out>
+    </div> 
+    <hr />
+    <layout-dad id="example4">
+    </layout-dad>    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
